@@ -1,1 +1,70 @@
-<p>header works!</p>
+<div class="header-container">
+    <div class="header-content">
+        <div class="logo-section">
+            <h1 class="app-title" routerLink="/">ShopSmart</h1>
+        </div>
+        <div class="navigation-links">
+            <a mat-button routerLink="/products" routerLinkActive="active-link">Products</a>
+            
+            <ng-container *ngIf="currentUser">
+                <a mat-button routerLink="/orders" routerLinkActive="active-link">My Orders</a>
+            </ng-container>
+        </div>
+        <div class="user-actions">
+            <a mat-icon-button routerLink="/cart" aria-label="Shopping cart">
+                <mat-icon [matBadge]="cartItemCount" matBadgeColor="accent" [matBadgeHidden]="cartItemCount === 0">
+                    shopping_cart
+                </mat-icon>
+            </a>
+            
+            <ng-container *ngIf="currentUser; else loginButtons">
+                <!-- Admin dropdown menu -->
+                <button *ngIf="isAdmin" mat-button [matMenuTriggerFor]="adminMenu" class="admin-menu-button">
+                    <mat-icon>admin_panel_settings</mat-icon>
+                    Admin
+                </button>
+                <mat-menu #adminMenu="matMenu">
+                    <button mat-menu-item routerLink="/admin/dashboard">
+                        <mat-icon>dashboard</mat-icon>
+                        Dashboard
+                    </button>
+                    <button mat-menu-item routerLink="/admin/products">
+                        <mat-icon>inventory_2</mat-icon>
+                        Manage Products
+                    </button>
+                    <button mat-menu-item routerLink="/admin/orders">
+                    <mat-icon>receipt_long</mat-icon>
+                    Manage Orders
+                    </button>
+                </mat-menu>
+                
+                <!-- User dropdown menu -->
+                <button mat-button [matMenuTriggerFor]="userMenu">
+                    <mat-icon>account_circle</mat-icon>
+                    {{ currentUser.name }}
+                </button>
+                <mat-menu #userMenu="matMenu">
+                    <button mat-menu-item routerLink="/profile">
+                        <mat-icon>person</mat-icon>
+                        Profile
+                    </button>
+                    <button mat-menu-item (click)="logout()">
+                        <mat-icon>exit_to_app</mat-icon>
+                        Logout
+                    </button>
+                </mat-menu>
+            </ng-container>
+            
+            <ng-template #loginButtons>
+                <button mat-button routerLink="/login">
+                    <mat-icon>login</mat-icon>
+                    Login
+                </button>
+                <button mat-button routerLink="/register">
+                    <mat-icon>person_add</mat-icon>
+                    Register
+                </button>
+            </ng-template>
+        </div>
+    </div>
+</div>
