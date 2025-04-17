@@ -1,6 +1,21 @@
 {
-    "users": [],
-    "products": [],
-    "orders": [],
-    "cart": []
+  "users": [
+    {
+      "id": "b851",
+      "name": "Lebron Goat James",
+      "email": "lebronjames@gmail.com",
+      "password": "123456789",
+      "isAdmin": false
+    },
+    {
+      "id": "cb1c",
+      "name": "admin",
+      "email": "admin@admin.com",
+      "password": "admin1234",
+      "isAdmin": true
+    }
+  ],
+  "products": [],
+  "orders": [],
+  "cart": []
 }
