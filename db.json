@@ -13,6 +13,13 @@
       "email": "admin@admin.com",
       "password": "admin1234",
       "isAdmin": true
+    },
+    {
+      "id": "cfe4",
+      "name": "Pumla Potia",
+      "email": "pumla@gmail.com",
+      "password": "123456789",
+      "isAdmin": false
     }
   ],
   "products": [],

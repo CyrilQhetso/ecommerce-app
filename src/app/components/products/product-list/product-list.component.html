@@ -1,1 +1,76 @@
-<p>product-list works!</p>
+<div class="products-container">
+    <div class="container">
+        <div class="products-header">
+            <h1>Products</h1>
+            
+            <div class="filter-controls">
+                <mat-form-field appearance="outline" class="search-field">
+                    <mat-label>Search products</mat-label>
+                    <input matInput [formControl]="searchControl" placeholder="Search by name or description">
+                    <mat-icon matPrefix>search</mat-icon>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>Category</mat-label>
+                    <mat-select [formControl]="categoryFilter">
+                        <mat-option value="all">All Categories</mat-option>
+                        <mat-option *ngFor="let category of categories" [value]="category">
+                            {{ category }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="products-grid" *ngIf="!loading; else loadingTemplate">
+            <ng-container *ngIf="filteredProducts.length > 0; else noProducts">
+                <div class="product-card" *ngFor="let product of filteredProducts">
+                    <div class="product-image">
+                        <img [src]="product.imageUrl" [alt]="product.name">
+                    </div>
+                    
+                    <div class="product-info">
+                        <h3 class="product-name">{{ product.name }}</h3>
+                        <p class="product-category">{{ product.category }}</p>
+                        <p class="product-description">{{ product.description | slice:0:100 }}{{ product.description.length > 100 ? '...' : '' }}</p>
+                        
+                        <div class="product-footer">
+                            <p class="product-price">${{ product.price.toFixed(2) }}</p>
+                            <div class="product-actions">
+                                <button mat-mini-fab color="primary" (click)="addToCart(product)" 
+                                    matTooltip="Add to Cart" [disabled]="product.stock <= 0">
+                                    <mat-icon>add_shopping_cart</mat-icon>
+                                </button>
+                                <button mat-mini-fab color="accent" [routerLink]="['/products', product.id]" 
+                                    matTooltip="View Details">
+                                    <mat-icon>visibility</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="stock-indicator" [ngClass]="{'in-stock': product.stock > 5, 'low-stock': product.stock > 0 && product.stock <= 5, 'out-of-stock': product.stock <= 0}">
+                            <span *ngIf="product.stock > 5">In Stock</span>
+                            <span *ngIf="product.stock > 0 && product.stock <= 5">Low Stock ({{ product.stock }} left)</span>
+                            <span *ngIf="product.stock <= 0">Out of Stock</span>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            
+            <ng-template #noProducts>
+            <div class="no-products">
+                <mat-icon>sentiment_dissatisfied</mat-icon>
+                <h3>No products found</h3>
+                <p>Try changing your search criteria</p>
+            </div>
+            </ng-template>
+        </div>
+        
+        <ng-template #loadingTemplate>
+            <div class="loading-container">
+                <mat-spinner diameter="50"></mat-spinner>
+                <p>Loading products...</p>
+            </div>
+        </ng-template>
+    </div>
+</div>
