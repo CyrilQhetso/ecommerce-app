@@ -1,1 +1,126 @@
-<p>profile works!</p>
+<div class="profile-container">
+    <mat-card class="profile-card">
+        <mat-card-header>
+            <mat-card-title>My Profile</mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <div *ngIf="isLoading" class="loading-spinner">
+                <mat-spinner diameter="40"></mat-spinner>
+            </div>
+        
+            <div *ngIf="!isLoading && currentUser">
+                <div class="user-info" *ngIf="!isEditing">
+                        <div class="info-item">
+                            <span class="label">Name:</span>
+                            <span class="value">{{ currentUser.name }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Email:</span>
+                            <span class="value">{{ currentUser.email }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Account Type:</span>
+                            <span class="value badge" [ngClass]="currentUser.isAdmin ? 'admin-badge' : 'user-badge'">
+                                {{ currentUser.isAdmin ? 'Administrator' : 'Customer' }}
+                            </span>
+                        </div>
+                </div>
+            
+            <form [formGroup]="profileForm" *ngIf="isEditing" class="profile-form">
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" required>
+                    <mat-error *ngIf="profileForm.get('name')?.hasError('required')">
+                        Name is required
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required type="email">
+                    <mat-error *ngIf="profileForm.get('email')?.hasError('required')">
+                        Email is required
+                    </mat-error>
+                    <mat-error *ngIf="profileForm.get('email')?.hasError('email')">
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+            </form>
+            </div>
+        </mat-card-content>
+        
+        <mat-card-actions align="end">
+            <button mat-button color="primary" *ngIf="!isEditing" (click)="toggleEdit()">
+                <mat-icon>edit</mat-icon> Edit Profile
+            </button>
+            <button mat-button color="warn" *ngIf="isEditing" (click)="toggleEdit()">
+                <mat-icon>cancel</mat-icon> Cancel
+            </button>
+            <button mat-raised-button color="primary" *ngIf="isEditing" 
+                    [disabled]="profileForm.invalid || isLoading" (click)="saveProfile()">
+                <mat-icon>save</mat-icon> Save Changes
+            </button>
+        </mat-card-actions>
+    </mat-card>
+    
+    <mat-card class="orders-card">
+        <mat-card-header>
+            <mat-card-title>My Orders</mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <div *ngIf="isLoading" class="loading-spinner">
+                <mat-spinner diameter="40"></mat-spinner>
+            </div>
+            
+            <div *ngIf="!isLoading">
+                <table mat-table [dataSource]="orders" class="orders-table" *ngIf="orders.length > 0">
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef>Order ID</th>
+                        <td mat-cell *matCellDef="let order">#{{ order.id }}</td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef>Date</th>
+                        <td mat-cell *matCellDef="let order">{{ order.createdAt | date:'medium' }}</td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef>Total</th>
+                        <td mat-cell *matCellDef="let order">{{ order.total | currency }}</td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef>Status</th>
+                        <td mat-cell *matCellDef="let order">
+                            <span class="status-badge" [ngClass]="getStatusClass(order.status)">
+                            {{ order.status | titlecase }}
+                            </span>
+                        </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef>Actions</th>
+                        <td mat-cell *matCellDef="let order">
+                            <button mat-icon-button color="primary" [routerLink]="['/orders', order.id]">
+                            <mat-icon>visibility</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    
+                    <tr mat-header-row *matHeaderRowDef="['id', 'date', 'total', 'status', 'actions']"></tr>
+                    <tr mat-row *matRowDef="let row; columns: ['id', 'date', 'total', 'status', 'actions']"></tr>
+                </table>
+            
+                <div class="no-orders-message" *ngIf="orders.length === 0">
+                    <mat-icon>receipt_long</mat-icon>
+                    <p>You haven't placed any orders yet.</p>
+                    <button mat-raised-button color="primary" routerLink="/products">
+                    Start Shopping
+                    </button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
