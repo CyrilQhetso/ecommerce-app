@@ -1,1 +1,193 @@
-<p>admin-dashboard works!</p>
+<div class="admin-container">
+    <mat-toolbar color="primary" class="admin-toolbar">
+        <span>Admin Dashboard</span>
+        <router-outlet></router-outlet>
+        <span class="toolbar-spacer"></span>
+        <button mat-icon-button routerLink="/">
+            <mat-icon>home</mat-icon>
+        </button>
+    </mat-toolbar>
+    
+    <div class="admin-content">
+        <mat-sidenav-container class="admin-sidenav-container">
+            <mat-sidenav mode="side" opened class="admin-sidenav">
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/admin/dashboard" [class.active-link]="activeLink === 'dashboard'">
+                        <mat-icon matListIcon>dashboard</mat-icon>
+                        <span>Dashboard</span>
+                    </a>
+                    <a mat-list-item routerLink="/admin/products" [class.active-link]="activeLink === 'products'">
+                        <mat-icon matListIcon>inventory_2</mat-icon>
+                        <span>Products</span>
+                    </a>
+                    <a mat-list-item routerLink="/admin/orders" [class.active-link]="activeLink === 'orders'">
+                        <mat-icon matListIcon>receipt_long</mat-icon>
+                        <span>Orders</span>
+                    </a>
+                    <mat-divider></mat-divider>
+                    <a mat-list-item routerLink="/" class="exit-admin">
+                        <mat-icon matListIcon>exit_to_app</mat-icon>
+                        <span>Exit Admin</span>
+                    </a>
+                </mat-nav-list>
+            </mat-sidenav>
+            
+            <mat-sidenav-content class="admin-main-content">
+            <!-- Dashboard overview is shown only on the dashboard route -->
+                <div class="dashboard-overview" *ngIf="activeLink === 'dashboard'">
+                    <div *ngIf="isLoading" class="loading-spinner">
+                        <mat-spinner diameter="40"></mat-spinner>
+                    </div>
+                    
+                    <div *ngIf="!isLoading">
+                        <div class="stats-cards">
+                            <mat-card class="stat-card products-card">
+                                <mat-card-content>
+                                    <div class="stat-icon">
+                                        <mat-icon>category</mat-icon>
+                                    </div>
+                                    <div class="stat-details">
+                                        <div class="stat-value">{{ totalProducts }}</div>
+                                        <div class="stat-label">Products</div>
+                                    </div>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                    <button mat-button color="primary" (click)="navigateToProductManagement()">
+                                    Manage Products
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                            
+                            <mat-card class="stat-card orders-card">
+                                <mat-card-content>
+                                    <div class="stat-icon">
+                                        <mat-icon>shopping_bag</mat-icon>
+                                    </div>
+                                        <div class="stat-details">
+                                        <div class="stat-value">{{ totalOrders }}</div>
+                                        <div class="stat-label">Orders</div>
+                                    </div>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                    <button mat-button color="primary" (click)="navigateToOrderManagement()">
+                                    Manage Orders
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                            
+                            <mat-card class="stat-card users-card">
+                                <mat-card-content>
+                                    <div class="stat-icon">
+                                        <mat-icon>group</mat-icon>
+                                    </div>
+                                        <div class="stat-details">
+                                        <div class="stat-value">{{ totalUsers }}</div>
+                                        <div class="stat-label">Customers</div>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                            
+                            <mat-card class="stat-card revenue-card">
+                                <mat-card-content>
+                                    <div class="stat-icon">
+                                        <mat-icon>attach_money</mat-icon>
+                                    </div>
+                                    <div class="stat-details">
+                                        <div class="stat-value">{{ totalRevenue | currency }}</div>
+                                        <div class="stat-label">Total Revenue</div>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    
+                    <div class="data-tables">
+                        <mat-card class="recent-orders">
+                            <mat-card-header>
+                                <mat-card-title>Recent Orders</mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <table mat-table [dataSource]="recentOrders" class="orders-table" *ngIf="recentOrders.length > 0">
+                                    <ng-container matColumnDef="id">
+                                        <th mat-header-cell *matHeaderCellDef>Order ID</th>
+                                        <td mat-cell *matCellDef="let order">#{{ order.id }}</td>
+                                    </ng-container>
+                                    
+                                    <ng-container matColumnDef="date">
+                                        <th mat-header-cell *matHeaderCellDef>Date</th>
+                                        <td mat-cell *matCellDef="let order">{{ order.createdAt | date:'short' }}</td>
+                                    </ng-container>
+                                    
+                                    <ng-container matColumnDef="items">
+                                        <th mat-header-cell *matHeaderCellDef>Items</th>
+                                        <td mat-cell *matCellDef="let order">{{ order.items.length }}</td>
+                                    </ng-container>
+                                    
+                                    <ng-container matColumnDef="total">
+                                        <th mat-header-cell *matHeaderCellDef>Total</th>
+                                        <td mat-cell *matCellDef="let order">{{ order.total | currency }}</td>
+                                    </ng-container>
+                                    
+                                    <ng-container matColumnDef="status">
+                                        <th mat-header-cell *matHeaderCellDef>Status</th>
+                                        <td mat-cell *matCellDef="let order">
+                                        <span class="status-badge" [ngClass]="getStatusClass(order.status)">
+                                            {{ order.status | titlecase }}
+                                        </span>
+                                        </td>
+                                    </ng-container>
+                                    
+                                    <tr mat-header-row *matHeaderRowDef="['id', 'date', 'items', 'total', 'status']"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: ['id', 'date', 'items', 'total', 'status']"></tr>
+                                </table>
+                                
+                                <div class="no-data-message" *ngIf="recentOrders.length === 0">
+                                No recent orders found.
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                        
+                        <mat-card class="low-stock">
+                            <mat-card-header>
+                                <mat-card-title>Low Stock Products</mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <table mat-table [dataSource]="lowStockProducts" class="products-table" *ngIf="lowStockProducts.length > 0">
+                                    <ng-container matColumnDef="id">
+                                        <th mat-header-cell *matHeaderCellDef>ID</th>
+                                        <td mat-cell *matCellDef="let product">#{{ product.id }}</td>
+                                    </ng-container>
+                                    
+                                    <ng-container matColumnDef="name">
+                                        <th mat-header-cell *matHeaderCellDef>Product</th>
+                                        <td mat-cell *matCellDef="let product">{{ product.name }}</td>
+                                    </ng-container>
+                                    
+                                    <ng-container matColumnDef="stock">
+                                        <th mat-header-cell *matHeaderCellDef>Stock</th>
+                                        <td mat-cell *matCellDef="let product">
+                                        <span class="stock-indicator"
+                                                [ngClass]="{'critical': product.stock <= 2, 'warning': product.stock > 2}">
+                                            {{ product.stock }}
+                                        </span>
+                                        </td>
+                                    </ng-container>
+                                    
+                                    <tr mat-header-row *matHeaderRowDef="['id', 'name', 'stock']"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'stock']"></tr>
+                                </table>
+                                
+                                <div class="no-data-message" *ngIf="lowStockProducts.length === 0">
+                                No low stock products found.
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    </div>
+                </div>
+            
+            <!-- Router outlet for child routes (product management & order management) -->
+            <router-outlet *ngIf="activeLink !== 'dashboard'"></router-outlet>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
+</div>
