@@ -22,7 +22,108 @@
       "isAdmin": false
     }
   ],
-  "products": [],
+  "products": [
+    {
+      "id": "d947",
+      "name": "Full Size Football",
+      "description": "Enhance your sports collection with our Full-size PVC Soccer Ball. Crafted for endurance and optimal ball control, each ball showcases an eye-catching design, ensuring it stands out during play. The diverse color options add a unique flair to your game, though please note colors may vary with each order. Tailored for players of all levels, this soccer ball is a fit for competitive matches, training sessions, and recreational use alike. Its robust build is meant to endure vigorous play across various surfaces. Charge into your next game equipped with a soccer ball that promises consistent performance and a touch of style. Remember, the ball will arrive deflated and color selection is random, offering a surprise with every purchase.",
+      "price": 10,
+      "imageUrl": "assets/images/sport/football.jpg",
+      "category": "Sport",
+      "stock": 15,
+      "featured": false
+    },
+    {
+      "name": "Tennis Balls - 3",
+      "description": "A high quality and consistent ball for longtime play at beach or courts, the ball is fuzzy, motion slow and shock reduce, especially great choice for the beginner or training, or playing in a harsh environment. Improved bright green color for a better tone contrast that allows players to track spin easier. Well, also easy to find when fall into sand rock or fly out of the playing area.",
+      "price": 6,
+      "imageUrl": "assets/images/sport/tennisball.jpg",
+      "category": "Sport",
+      "stock": 10,
+      "featured": false,
+      "id": "9053"
+    },
+    {
+      "name": "Netball",
+      "description": "A perfect netball for entry level players at club, school or for practice in the back garden. This training ball has been made for outdoor use with a hard wearing rubber surface. In addition, the butyl bladder offers maximum air retention so your netball stays inflated for as long as possible. Available in size 5 and 4 this is the perfect training ball for beginners.",
+      "price": 8.5,
+      "imageUrl": "assets/images/sport/netball.jpg",
+      "category": "Sport",
+      "stock": 10,
+      "featured": false,
+      "id": "ee3d"
+    },
+    {
+      "name": "Basketball",
+      "description": "The Wilson NBA AUTHENTIC INDOOR-OUTDOOR basketball is an indoor and outdoor basketball ball that uses high-performance composite leather to bring out the authentic NBA leather feel.",
+      "price": 20,
+      "imageUrl": "assets/images/sport/basketball.jpeg",
+      "category": "Sport",
+      "stock": 12,
+      "featured": false,
+      "id": "ed13"
+    },
+    {
+      "id": "dfc6",
+      "name": "Boxing Gloves",
+      "description": "These boxing gloves are made of artificial leather and are much stronger than the usual PVC gloves. A wide wrist band gives you good support and combined with our hand wraps, these gloves feel like a natural extension of your fists. Sizes range from 8oz to 12oz. Also available in genuine leather for those students who can’t get enough of Martial Arts.",
+      "price": 21,
+      "imageUrl": "assets/images/sport/boxing.jpg",
+      "category": "Sport",
+      "stock": 10,
+      "featured": false
+    },
+    {
+      "id": "1fcc",
+      "name": "Cover Fix",
+      "description": "Refusing to be boxed into one category, these drops are somehow a single piece of makeup and a part of all makeup at once. You can dab some on your face as a highlighter, mix the drops into your face makeup for a universal glow, or use one of the bronzing colors to look more sun-kissed.",
+      "price": 15,
+      "imageUrl": "assets/images/beauty/makeup.jpg",
+      "category": "Beauty",
+      "stock": 6,
+      "featured": false
+    },
+    {
+      "id": "ebd2",
+      "name": "Facial Sheet Mask 12 Combo",
+      "description": "Experience the difference with our 12-set supreme collection of sheet masks, treasuring natural beauty and ingredients and designed for all skin types and concerns",
+      "price": 25,
+      "imageUrl": "assets/images/beauty/face.jpg",
+      "category": "Beauty",
+      "stock": 20,
+      "featured": false
+    },
+    {
+      "id": "2822",
+      "name": "The 48 Laws of Power",
+      "description": "Amoral, cunning, ruthless, and instructive, this bestselling work distills 3,000 years of the history of power into 48 well-explicated laws. As attention-grabbing in its design as it is in content, this bold volume outlines the laws of power in them",
+      "price": 17,
+      "imageUrl": "assets/images/books/book.jpg",
+      "category": "Books",
+      "stock": 5,
+      "featured": false
+    },
+    {
+      "id": "01db",
+      "name": "The School of Life: An Emotional Education",
+      "description": "This book brings together ten years of essential and transformative research on emotional intelligence, with practical topics including:\n\n- how to understand yourself\n- how to master the dilemmas of relationships\n- how to become more effective at work\n- how to endure failure\n- how to grow more serene and resilient",
+      "price": 16,
+      "imageUrl": "assets/images/books/life.jpg",
+      "category": "Books",
+      "stock": 8,
+      "featured": false
+    },
+    {
+      "id": "feab",
+      "name": "Puff Jacket",
+      "description": "For cold and rainy day, big puff warm jackets will save your day. With high quality fabric and strong material available in all colors.",
+      "price": 40,
+      "imageUrl": "assets/images/clothing/jacket.jpg",
+      "category": "Clothing",
+      "stock": 10,
+      "featured": false
+    }
+  ],
   "orders": [],
   "cart": []
 }
