@@ -122,6 +122,46 @@
       "category": "Clothing",
       "stock": 10,
       "featured": false
+    },
+    {
+      "id": "fcc3",
+      "name": "Jeans",
+      "description": "Wide Leg Jeans, Straight Leg Jeans, Bootleg Jeans, Flare Jeans, Bell Bottoms, Skinny Jeans, Barrel Jeans, Relaxed Fit, Boyfriend Jeans",
+      "price": 24.99,
+      "imageUrl": "assets/images/clothing/jeans.jpg",
+      "category": "Clothing",
+      "stock": 30,
+      "featured": false
+    },
+    {
+      "id": "0a1b",
+      "name": "Caps",
+      "description": "100% Cotton All colors, A Good Core Cap Which Anyone Can Wear",
+      "price": 15.99,
+      "imageUrl": "assets/images/clothing/caps.jpg",
+      "category": "Clothing",
+      "stock": 14,
+      "featured": false
+    },
+    {
+      "id": "7ac8",
+      "name": "Warm Knitted Beanie Hats",
+      "description": "Product information:\nMaterial: knitted\nPackage includes: 1pcs",
+      "price": 5.99,
+      "imageUrl": "assets/images/clothing/hats.jpg",
+      "category": "Clothing",
+      "stock": 15,
+      "featured": false
+    },
+    {
+      "id": "458d",
+      "name": "Plain T Shirts Mix Colors",
+      "description": "Optimized for all types of print. Comfortable and available in wide range of colors and for all home; work and play.",
+      "price": 7.5,
+      "imageUrl": "assets/images/clothing/shirt.jpg",
+      "category": "Clothing",
+      "stock": 20,
+      "featured": false
     }
   ],
   "orders": [],
