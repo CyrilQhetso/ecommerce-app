@@ -162,6 +162,46 @@
       "category": "Clothing",
       "stock": 20,
       "featured": false
+    },
+    {
+      "id": "72b2",
+      "name": "Black Leather Sneakers",
+      "description": "Futuristic Style with Ultimate Comfort! Step into the future of fashion with these black high-top sneakers featuring a striking metallic toe cap. Designed for those who appreciate bold aesthetic",
+      "price": 65,
+      "imageUrl": "assets/images/clothing/shoes.jpg",
+      "category": "Clothing",
+      "stock": 10,
+      "featured": false
+    },
+    {
+      "id": "4915",
+      "name": "20m Led Lights Bluetooth RGB Lights Led Tape Lights",
+      "description": "Ultra Long Strip Lights 20M2x10m) led strip lights are long enough to reach around your entire room and light the whole place up, cuttable design allows you to adjust the length of led lights however you like, for bedroom, living room, cabinet, party, christmas, etcMulti Control Method LED light strip can control via APP, 44 key IR remoter. Multicolors with the APP, and easy to use the 44 key remoter or control box to set the brightness, speed, color, static, dynamic mode, etc. Multi control method was available to pocketable & Easy Install LED strip lights are cuttable between every 3 LEDs, to allow you to DIY any shapes for different needs. The self-adhesive tape can be fit on any dry and flat surface, easy to install anywhere you want. Smart Timer Function Memory Function Can preset the time and color to switch lights on/off automatically at any particular time, helps to control lights time and save energy. The memory function will auto keep the last use mode when you turn it back on. Built-in Highly Sensitive Mic the Built-in sensitive mic will detect the music, or you speak volume to change the color and speed.",
+      "price": 120,
+      "imageUrl": "assets/images/electronics/led.jpg",
+      "category": "Electronics",
+      "stock": 14,
+      "featured": false
+    },
+    {
+      "id": "58f9",
+      "name": "43\" T5300 HD Smart TV",
+      "description": "The 43\" T5300 HD Smart TV offers a crisp and clear viewing experience with its Full HD resolution, making it perfect for enjoying your favorite shows and movies. It features smart capabilities, allowing easy access to streaming services and apps, enhancing your entertainment options.",
+      "price": 249.99,
+      "imageUrl": "assets/images/electronics/tv.jpg",
+      "category": "Electronics",
+      "stock": 7,
+      "featured": false
+    },
+    {
+      "id": "863d",
+      "name": "Bluetooth Headphones",
+      "description": "KVIDIO Bluetooth Headphones Over Ear, 65 Hours Playtime Wireless Headphones with Microphone, Foldable Lightweight Headset with Deep Bass, HiFi Stereo Sound.",
+      "price": 70,
+      "imageUrl": "assets/images/electronics/headphones.jpg",
+      "category": "Electronics",
+      "stock": 11,
+      "featured": false
     }
   ],
   "orders": [],
