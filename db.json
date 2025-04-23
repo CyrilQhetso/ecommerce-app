@@ -202,6 +202,56 @@
       "category": "Electronics",
       "stock": 11,
       "featured": false
+    },
+    {
+      "id": "87c1",
+      "name": "Gas Stove",
+      "description": "True Flame Technology\nSafe Flame Cooking-lpgsa Approved\nHigh Quality Cast Iron Grids\nLarge 85lt Oven Capacity\n2 Chromed Oven Racks\n1 X Roasting Pan\nSuperior Black Finish\nEasy Clean Enamel On Oven Cavity And Hob\nAuto Battery Ignition",
+      "price": 450,
+      "imageUrl": "assets/images/home/stove.jpg",
+      "category": "Home",
+      "stock": 5,
+      "featured": false
+    },
+    {
+      "id": "9883",
+      "name": "Kettle 1.8L",
+      "description": "a 1.8-litre capacity body with a water level indicator for easy monitoring. It includes safety features like boil-dry protection and auto switch-off. The concealed heating element ensures efficient boiling, while a blue LED light adds elegance.",
+      "price": 35.99,
+      "imageUrl": "assets/images/home/kettle.jpg",
+      "category": "Home",
+      "stock": 16,
+      "featured": false
+    },
+    {
+      "id": "230c",
+      "name": "2 SLICE TOASTER",
+      "description": "650-750W 2-Slice Cool Touch Toaster With Auto Pop Up And Auto Shut Off\nVariable Browning Controller with Defrost, Reheat And Cancell Options\nWide Slot With Auto Centering System, Anti-Jam Function And Slide-Out Crumb Tray\nCord Storage Under Base and Anti-Slip Rubber Feet\nCompact, Modern and Portable",
+      "price": 37.99,
+      "imageUrl": "assets/images/home/toaster.jpg",
+      "category": "Home",
+      "stock": 9,
+      "featured": false
+    },
+    {
+      "id": "dab5",
+      "name": "20lt Manual Microwave",
+      "description": "Digital Led Display\n700watt Power\n11 Power Levels\n8 Auto Menus\nDefrost By Time or Weight\n255mm Glass Turntable\nMirror Finish Door\nH 488 W 380 D 291mm",
+      "price": 85,
+      "imageUrl": "assets/images/home/microwave.jpg",
+      "category": "Home",
+      "stock": 11,
+      "featured": false
+    },
+    {
+      "id": "0c71",
+      "name": "Laundry Basket 50LT",
+      "description": "A basket for holding clothes and linen that need to be washed or that have been washed.",
+      "price": 70,
+      "imageUrl": "assets/images/home/basket.jpg",
+      "category": "Home",
+      "stock": 30,
+      "featured": false
     }
   ],
   "orders": [],
