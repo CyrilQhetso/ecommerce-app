@@ -7,7 +7,7 @@
             <a mat-button routerLink="/products" routerLinkActive="active-link">Products</a>
             
             <ng-container *ngIf="currentUser">
-                <a mat-button routerLink="/orders" routerLinkActive="active-link">My Orders</a>
+                <a mat-button [routerLink]="['/profile']" fragment="orders-section" routerLinkActive="active-link">My Orders</a>
             </ng-container>
         </div>
         <div class="user-actions">
@@ -18,7 +18,6 @@
             </a>
             
             <ng-container *ngIf="currentUser; else loginButtons">
-                <!-- Admin dropdown menu -->
                 <button *ngIf="isAdmin" mat-button [matMenuTriggerFor]="adminMenu" class="admin-menu-button">
                     <mat-icon>admin_panel_settings</mat-icon>
                     Admin
@@ -38,7 +37,6 @@
                     </button>
                 </mat-menu>
                 
-                <!-- User dropdown menu -->
                 <button mat-button [matMenuTriggerFor]="userMenu">
                     <mat-icon>account_circle</mat-icon>
                     {{ currentUser.name }}

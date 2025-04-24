@@ -6,6 +6,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { UserService } from '../../../services/user/user.service';
 import { OrderService } from '../../../services/order/order.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -26,7 +27,8 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private orderService: OrderService,
     private fb: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private route: ActivatedRoute
   ) {
     this.profileForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -47,6 +49,15 @@ export class ProfileComponent implements OnInit {
       }
 
       this.isLoading = false;
+
+      this.route.fragment.subscribe(fragment => {
+        if (fragment) {
+          const element = document.getElementById(fragment);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth'});
+          }
+        }
+      });
   }
 
   loadUserOrders(): void {

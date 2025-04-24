@@ -252,6 +252,56 @@
       "category": "Home",
       "stock": 30,
       "featured": false
+    },
+    {
+      "id": "9a7e",
+      "name": "Paper Clinch Compact Staple",
+      "description": "The paper clinch is durable for multiple uses that is reliable through constant stapling\nThe compact design allows it store easily in your desk, back pack, brief case, purse or drawer\nErgonomically designed for one handed use\nPalm sized for easy handling and perfect for everyone including children and seniors",
+      "price": 11.89,
+      "imageUrl": "assets/images/other/stapler.jpg",
+      "category": "Other",
+      "stock": 30,
+      "featured": false
+    },
+    {
+      "id": "5e1d",
+      "name": "Flex Frisbee",
+      "description": "Classic Frisbee is more than a toy-it is part of our heritage and every kid should own one.",
+      "price": 31.99,
+      "imageUrl": "assets/images/other/frizbee.jpg",
+      "category": "Other",
+      "stock": 25,
+      "featured": false
+    },
+    {
+      "id": "2d74",
+      "name": "5m Tape Measure",
+      "description": "tape measures are ingeniously designed to provide both convenience and accuracy. It consists of a flexible tape made from durable materials such as ABS, plastic, alloy steel, allowing it to withstand repeated use and maintain its integrity over time. Our tape measures are marked with clear and easy-to-read measurements, both metric and imperial units, enabling users to work with their preferred system of measurement.",
+      "price": 6.99,
+      "imageUrl": "assets/images/other/tape.jpg",
+      "category": "Other",
+      "stock": 20,
+      "featured": false
+    },
+    {
+      "id": "20ec",
+      "name": "Kids Toys,23PCS Kitchen Toys, Cutting Toys",
+      "description": "Have more funs:20Pcs cutting toys playset.Safety & Quality Control: Made of safe and environmental materials, round edge design will provide maximum security for your kids.Intellectual development: exercise children's cognitive and practical skills.Durable storage case:Storage case will be more convenient for you to storage the all the toys.Do worry about the toys littered the floor.",
+      "price": 64.99,
+      "imageUrl": "assets/images/other/toys.jpg",
+      "category": "Other",
+      "stock": 50,
+      "featured": false
+    },
+    {
+      "id": "5e62",
+      "name": "Montego Classic Adult Dog Food",
+      "description": "Montego Classic Adult Dog Food is a complete and balanced premium dog food that is enticingly delicious and highly digestible nutrition for your adult dog.",
+      "price": 25,
+      "imageUrl": "assets/images/other/dogfood.jpg",
+      "category": "Other",
+      "stock": 25,
+      "featured": false
     }
   ],
   "orders": [],
