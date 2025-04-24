@@ -1,43 +1,76 @@
-<div class="landing-container">
+<div class="landing-container" [ngClass]="{'loaded': !loading}">
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+    
     <div class="landing-content">
-        <div class="logo-section">
+        <div class="logo-section" [@fadeInUp]>
+            <div class="logo-animation">
+                <mat-icon class="cart-icon">shopping_cart</mat-icon>
+                <div class="pulse-circle"></div>
+            </div>
             <h1 class="app-title">ShopSmart</h1>
             <p class="app-subtitle">Your one-stop shop for all your needs</p>
         </div>
 
+        <div class="cta-section" [@fadeInUp]="{ value: null, params: { delay: '700ms' } }">
+            <h2>Start Shopping Today!</h2>
+            <button mat-raised-button color="primary" routerLink="/products" class="cta-button">
+            Browse Products
+            <mat-icon>store</mat-icon>
+            </button>
+        </div>
+        <br>
+        <br>
+        <br>
+    
         <div class="auth-options">
-            <div class="auth-card">
-                <h2>New to ShopSmart</h2>
-                <p>Create an account to start shopping and tracks your orders.</p>
-                <button mat-raised-button color="primary" routerLink="/register">
+            <div class="auth-card" [@slideInLeft]>
+                <div class="card-icon-container">
                     <mat-icon>person_add</mat-icon>
+                </div>
+                <h2>New to ShopSmart</h2>
+                <p>Create an account to start shopping and track your orders.</p>
+                <button mat-raised-button color="primary" routerLink="/register" class="action-button">
+                    Sign Up
+                    <mat-icon>arrow_forward</mat-icon>
                 </button>
             </div>
-
-            <div class="auth-card">
+    
+            <div class="auth-card" [@slideInRight]>
+                <div class="card-icon-container">
+                    <mat-icon>login</mat-icon>
+                </div>
                 <h2>Already have an account?</h2>
                 <p>Sign in to continue shopping and see your orders</p>
-                <button mat-raised-button color="accent" routerLink="/login">
-                    <mat-icon>login</mat-icon>
+                <button mat-raised-button color="accent" routerLink="/login" class="action-button">
+                    Sign In
+                    <mat-icon>arrow_forward</mat-icon>
                 </button>
             </div>
         </div>
-
+    
         <div class="features-section">
-            <div class="feature">
-                <mat-icon>shopping_cart</mat-icon>
+            <div class="feature" [@fadeInUp]="{ value: null, params: { delay: '100ms' } }">
+                <div class="feature-icon-wrapper">
+                    <mat-icon>shopping_cart</mat-icon>
+                </div>
                 <h3>Easy Shopping</h3>
                 <p>Browse our extensive catalog and add items to your cart with a click.</p>
             </div>
-
-            <div class="feature">
-                <mat-icon>local_shipping</mat-icon>
+    
+            <div class="feature" [@fadeInUp]="{ value: null, params: { delay: '300ms' } }">
+                <div class="feature-icon-wrapper">
+                    <mat-icon>local_shipping</mat-icon>
+                </div>
                 <h3>Fast Delivery</h3>
                 <p>Get your orders delivered to your doorstep in record time.</p>
             </div>
-
-            <div class="feature">
-                <mat-icon>payments</mat-icon>
+    
+            <div class="feature" [@fadeInUp]="{ value: null, params: { delay: '500ms' } }">
+                <div class="feature-icon-wrapper">
+                    <mat-icon>payments</mat-icon>
+                </div>
                 <h3>Secure Payments</h3>
                 <p>Shop with confidence with our secure payment methods.</p>
             </div>
