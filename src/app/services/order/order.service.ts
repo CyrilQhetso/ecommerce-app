@@ -116,6 +116,15 @@ export class OrderService {
     ).subscribe();
   }
 
+  
+cancelOrder(orderId: string): Observable<void> {
+     return this.http.delete<void>(`${this.apiUrl}/${orderId}`).pipe(
+       tap(_ => console.log(`Cancelled order id=${orderId}`)),
+       catchError(this.handleError<void>('cancelOrder'))
+     );
+   }
+  
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.log(`${operation} failed: ${error.message}`);

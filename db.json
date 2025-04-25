@@ -30,7 +30,7 @@
       "price": 10,
       "imageUrl": "assets/images/sport/football.jpg",
       "category": "Sport",
-      "stock": 15,
+      "stock": 14,
       "featured": false
     },
     {
@@ -39,7 +39,7 @@
       "price": 6,
       "imageUrl": "assets/images/sport/tennisball.jpg",
       "category": "Sport",
-      "stock": 10,
+      "stock": 9,
       "featured": false,
       "id": "9053"
     },
@@ -304,6 +304,35 @@
       "featured": false
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "ceef",
+      "userId": "cfe4",
+      "items": [
+        {
+          "id": 130524,
+          "productId": "d947",
+          "name": "Full Size Football",
+          "price": 10,
+          "quantity": 1,
+          "imageUrl": "assets/images/sport/football.jpg",
+          "stock": 15
+        },
+        {
+          "id": 990472,
+          "productId": "9053",
+          "name": "Tennis Balls - 3",
+          "price": 6,
+          "quantity": 1,
+          "imageUrl": "assets/images/sport/tennisball.jpg",
+          "stock": 10
+        }
+      ],
+      "total": 16,
+      "shippingAddress": "\n      Pumla Potia,\n      123 Main Rd,\n      Cape Town,\n      Western Cape 2001,\n      Phone: 0211222994\n    ",
+      "status": "delivered",
+      "createdAt": "2025-04-25T16:48:34.820Z"
+    }
+  ],
   "cart": []
 }

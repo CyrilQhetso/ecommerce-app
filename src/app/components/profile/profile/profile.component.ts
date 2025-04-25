@@ -127,6 +127,25 @@ export class ProfileComponent implements OnInit {
     );
   }
 
+  cancelOrder(orderId: string): void {
+    if (confirm('Are you sure you want to cancel this order?')) {
+      this.isLoading =  true;
+
+      this.orderService.cancelOrder(orderId).subscribe(() => {
+        this.snackBar.open('Order cancelled!', 'Close', {
+          duration: 3000
+        });
+        this.loadUserOrders();
+      }, error => {
+        console.error('Error cancelling order', error);
+        this.snackBar.open('Failed to cancel order. Please try again.', 'Close', {
+          duration: 3000
+        });
+        this.isLoading = false;
+      });
+    }
+  }
+
   getStatusClass(status: string): string {
     switch(status) {
       case 'pending': return 'status-pending';
